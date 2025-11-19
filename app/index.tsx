@@ -1,14 +1,15 @@
 
-import React from 'react';
 import { useRouter } from 'expo-router';
-import LandingPage from '../screens/Landingpage'; 
-import CuratedBasket from '../screens/CuratedBasket.js'
+import React from 'react';
+import CuratedBasket from '../screens/Equity';
+
 const Index = () => {
   const router = useRouter();
 
   return (
   // <LandingPage />
   <CuratedBasket/>
+  // <AuthModal />
 )};
 
 export default Index;
