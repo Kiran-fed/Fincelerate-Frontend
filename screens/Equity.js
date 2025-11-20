@@ -243,6 +243,8 @@ export default function Equity() {
                 style={[
                   styles.headerCell,
                   styles.col,
+                  isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                   isMobile && styles.headerCellMobile,
                   isTablet && styles.headerCellTablet,
                 ]}
@@ -255,6 +257,8 @@ export default function Equity() {
                   styles.col,
                   isMobile && styles.headerCellMobile,
                   isTablet && styles.headerCellTablet,
+                  isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                 ]}
               >
                 Absolute Returns
@@ -265,6 +269,8 @@ export default function Equity() {
                   styles.col,
                   isMobile && styles.headerCellMobile, styles.colMobile,
                   isTablet && styles.headerCellTablet,
+                  isMobile && styles.colMobile,
+                  isTablet && styles.colTablet,
                 ]}
               >
                 Annualized Returns
@@ -275,6 +281,8 @@ export default function Equity() {
                   styles.col,
                   isMobile && styles.headerCellMobile,
                   isTablet && styles.headerCellTablet,
+                  isMobile && styles.colMobile,
+                  isTablet && styles.colTablet,
                 ]}
               >
                 Category Average
@@ -285,6 +293,8 @@ export default function Equity() {
                   styles.col,
                   isMobile && styles.headerCellMobile,
                   isTablet && styles.headerCellTablet,
+                  isMobile && styles.colMobile,
+                  isTablet && styles.colTablet,
                 ]}
               >
                 Benchmark
@@ -313,6 +323,8 @@ export default function Equity() {
                   style={[
                     styles.cell,
                     styles.col,
+                    isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                     isMobile && styles.cellMobile,
                     isTablet && styles.cellTablet,
                   ]}
@@ -323,6 +335,8 @@ export default function Equity() {
                   style={[
                     styles.cellGreen,
                     styles.col,
+                    isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                     isMobile && styles.cellMobile,
                     isTablet && styles.cellTablet,
                   ]}
@@ -333,6 +347,8 @@ export default function Equity() {
                   style={[
                     styles.cellGreen,
                     styles.col,
+                    isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                     isMobile && styles.cellMobile,
                     isTablet && styles.cellTablet,
                   ]}
@@ -343,6 +359,8 @@ export default function Equity() {
                   style={[
                     styles.cellGreen,
                     styles.col,
+                    isMobile && styles.colMobile,
+                    isTablet && styles.colTablet,
                     isMobile && styles.cellMobile,
                     isTablet && styles.cellTablet,
                   ]}
@@ -585,19 +603,22 @@ export default function Equity() {
               </View>
 
               {/* RIGHT */}
-              {!isMobile && (
+              {(
+                isMobile || isTablet || !isMobile
+                ) && (
                 <View
                   style={[
                     styles.pieContainer,
                     isTablet && styles.pieContainerTablet,
+                    isMobile && styles.pieContainerMobile,
                   ]}
                 >
                   <PieChartPro
                     donut
                     showText
-                    radius={isTablet ? 150 : 300}
-                    innerRadius={isTablet ? 80 : 160}
-                    textSize={isTablet ? 12 : 16}
+                    radius={isMobile ? 140 : isTablet ? 160 : 240}
+                    innerRadius={isMobile ? 70 : isTablet ? 80 : 120}
+                    textSize={isMobile ? 10 : isTablet ? 12 : 16}
                     textColor="#fff"
                     data={pieData}
                     strokeWidth={10}
@@ -608,6 +629,7 @@ export default function Equity() {
                           style={[
                             styles.piePercent,
                             isTablet && styles.piePercentTablet,
+                            isMobile && styles.piePercentMobile,
                           ]}
                         >
                           80%
@@ -616,6 +638,7 @@ export default function Equity() {
                           style={[
                             styles.pieTitle,
                             isTablet && styles.pieTitleTablet,
+                            isMobile && styles.pieTitleMobile,
                           ]}
                         >
                           Equity
@@ -741,6 +764,7 @@ export default function Equity() {
               <View
                 style={[
                   styles.equityTable,
+                  
                   isMobile && styles.equityTableMobile,
                   isTablet && styles.equityTableTablet,
                 ]}
@@ -751,6 +775,8 @@ export default function Equity() {
                     style={[
                       styles.equityheaderCell,
                       styles.equitycol,
+                      isMobile && styles.equitycolMobile,
+                      isTablet && styles.equitycolTablet,
                       isMobile && styles.equityheaderCellMobile,
                       isTablet && styles.equityheaderCellTablet,
                     ]}
@@ -761,6 +787,8 @@ export default function Equity() {
                     style={[
                       styles.equityheaderCell,
                       styles.equitycol,
+                       isMobile && styles.equitycolMobile,
+                      isTablet && styles.equitycolTablet,
                       isMobile && styles.equityheaderCellMobile,
                       isTablet && styles.equityheaderCellTablet,
                     ]}
@@ -771,6 +799,8 @@ export default function Equity() {
                     style={[
                       styles.equityheaderCellpercent,
                       styles.equitycolpercent,
+                      isMobile && styles.equitycolpercentMobile,
+                      isTablet && styles.equitycolpercentTablet,
                       isMobile && styles.equityheaderCellMobile,
                       isTablet && styles.equityheaderCellTablet,
                     ]}
@@ -803,6 +833,8 @@ export default function Equity() {
                           styles.equitycol,
                           isMobile && styles.equitycellMobile,
                           isTablet && styles.equitycellTablet,
+                          isMobile && styles.equitycolMobile,
+                          isTablet && styles.equitycolTablet,
                         ]}
                       >
                         {row.stock}
@@ -813,6 +845,8 @@ export default function Equity() {
                           styles.equitycol,
                           isMobile && styles.equitycellMobile,
                           isTablet && styles.equitycellTablet,
+                          isMobile && styles.equitycolMobile,
+                          isTablet && styles.equitycolTablet,
                         ]}
                       >
                         {row.sector}
@@ -823,6 +857,8 @@ export default function Equity() {
                           styles.equitycolpercent,
                           isMobile && styles.equitycellMobile,
                           isTablet && styles.equitycellTablet,
+                          isMobile && styles.equitycolpercentMobile,
+                          isTablet && styles.equitycolpercentTablet, 
                           row.percent.startsWith('-')
                             ? { color: '#FF6769' }
                             : { color: '#73FFBA' },
@@ -875,7 +911,7 @@ export default function Equity() {
           <View
             style={[
               styles.navbar,
-              isMobile && styles.navbarMobile,
+              isMobile &&    styles.navbarMobile,
               isTablet && styles.navbarTablet,
             ]}
           >
@@ -917,7 +953,7 @@ export default function Equity() {
                   <TouchableOpacity style={styles.navItem}>
                     <LayoutDashboard
                       color="white"
-                      size={isTablet ? 18 : 20}
+                      size={isTablet ? 16 : 20}
                     />
                     <Text
                       style={[
@@ -929,7 +965,7 @@ export default function Equity() {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.navItem}>
-                    <PiggyBank color="white" size={isTablet ? 18 : 20} />
+                    <PiggyBank color="white" size={isTablet ? 16 : 20} />
                     <Text
                       style={[
                         styles.navText,
@@ -940,7 +976,7 @@ export default function Equity() {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.navItem}>
-                    <Lightbulb color="white" size={isTablet ? 18 : 20} />
+                    <Lightbulb color="white" size={isTablet ? 16 : 20} />
                     <Text
                       style={[
                         styles.navText,
@@ -1761,20 +1797,12 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc17',
   },
   colMobile: {
-    flex: 1,
-    minHeight: 50,
-    minWidth: 30,
-    paddingVertical: 30,
-    borderWidth: 1,
-    borderColor: '#cccccc17',
+     minHeight: 50,
+    minWidth: 100,
   },
     colTablet: {
-    flex: 1,
     minHeight: 50,
-    minWidth: 30,
-    paddingVertical: 30,
-    borderWidth: 1,
-    borderColor: '#cccccc17',
+    minWidth: 200,
   },
   // Portfolio Section Styles
   portfolioContainer: {
@@ -1877,6 +1905,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     width: '90%',
     marginTop: 100,
+    gap:10,
+    // flexWrap: 'wrap',
   },
   assetRowMobile: {
     flexDirection: 'column',
@@ -1890,7 +1920,7 @@ const styles = StyleSheet.create({
   },
 
   assetLeft: {
-    width: '60%',
+    width: '50%',
   },
   assetLeftMobile: {
     width: '100%',
@@ -1901,6 +1931,7 @@ const styles = StyleSheet.create({
 
   assetBox: {
     marginBottom: 25,
+    
   },
 
   topRow: {
@@ -1985,13 +2016,15 @@ const styles = StyleSheet.create({
     width: '40%',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 'inherit',
   },
   pieContainerTablet: {
     width: '100%',
     marginTop: 30,
   },
-
+pieContainerMobile: {
+    width: '100%',
+    marginTop: 30,
+  },
   piePercent: {
     fontSize: 48,
     fontFamily: 'Poppins-700',
@@ -1999,6 +2032,10 @@ const styles = StyleSheet.create({
   },
   piePercentTablet: {
     fontSize: 32,
+  },
+
+  piePercentMobile: {
+    fontSize: 26,
   },
 
   pieTitle: {
@@ -2009,7 +2046,9 @@ const styles = StyleSheet.create({
   pieTitleTablet: {
     fontSize: 32,
   },
-
+ pieTitleMobile: {
+    fontSize: 32,
+  },
   // Sector Styles
   sectionContainer: {
     width: '95%',
@@ -2050,11 +2089,11 @@ const styles = StyleSheet.create({
     width: 350,
   },
   sectorLabelRowMobile: {
-    width: '100%',
+    width: 110,
     marginBottom: 5,
   },
   sectorLabelRowTablet: {
-    width: 250,
+    width: 200,
   },
 
   sectorLabel: {
@@ -2221,7 +2260,18 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc17',
     paddingLeft: 100,
   },
-
+  equitycolMobile: {
+    minHeight: 30,
+    minWidth: 100,
+    paddingVertical: 32,
+    paddingLeft: 20,
+  },
+  equitycolTablet: {
+    minHeight: 40,
+    minWidth: 200,
+    paddingVertical: 40,
+    paddingLeft: 40,
+  },
   equitycolpercent: {
     flex: 1,
     minHeight: 50,
@@ -2230,7 +2280,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#cccccc17',
   },
-
+  equitycolpercentMobile: {
+    minHeight: 30,
+    minWidth: 100,
+    paddingVertical: 32,
+    paddingLeft: 20,
+  },
+  equitycolpercentTablet: {
+    minHeight: 40,
+    minWidth: 200,
+    paddingVertical: 40,
+    paddingLeft: 40,
+  },
   scrollHint: {
     marginTop: 20,
     fontFamily: 'Poppins-500',
@@ -2272,7 +2333,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   navbarTablet: {
-    padding: 12,
+    padding: 10,
   },
 
   navlogo: {
@@ -2295,26 +2356,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     gap: 50,
-    width: '50%',
+    width: '60%',
   },
   navItemsTablet: {
-    gap: 30,
+    gap: 10,
     width: '60%',
   },
 
   navItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 4,
   },
 
   navText: {
     color: '#fff',
     fontSize: 20,
     fontFamily: 'Montserrat-500',
+    flexWrap: 'wrap',
   },
   navTextTablet: {
     fontSize: 16,
+    flexWrap: 'wrap',
+    maxWidth: 90,
   },
 
   iconBorder: {
@@ -2326,7 +2390,7 @@ const styles = StyleSheet.create({
   },
   iconBorderTablet: {
     gap: 12,
-    width: '25%',
+    width: '30%',
   },
 
   icons: {
@@ -2339,8 +2403,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#151515',
   },
   iconsTablet: {
-    height: 50,
-    width: 50,
+    height: 30,
+    width: 30,
   },
 
   iconSpacing: {
@@ -2353,8 +2417,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2D3439',
   },
   iconSpacingTablet: {
-    height: 50,
-    width: 50,
+    height: 30,
+    width: 30,
   },
 
   iconUser: {
